@@ -18,8 +18,8 @@ public class HoosierTech extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
-       instance = this;
-       HoosierTechItemSetup.setup(this);
+        instance = this;
+        HoosierTechItemSetup.setup(this);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class HoosierTech extends JavaPlugin implements SlimefunAddon {
         return this;
     }
 
-    public HoosierTech getInstance() {
+    public static HoosierTech getInstance() {
         return instance;
     }
 }
