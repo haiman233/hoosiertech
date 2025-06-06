@@ -1,5 +1,19 @@
 package me.hoosiertransfer.hoosiertech.machines;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState;
@@ -27,22 +41,6 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 public class DustMutator extends SlimefunItem
         implements RecipeDisplayItem, EnergyNetComponent, MachineProcessHolder<MiningOperation> {
@@ -74,17 +72,17 @@ public class DustMutator extends SlimefunItem
     private final MachineProcessor<MiningOperation> processor = new MachineProcessor<>(this);
 
     private static final ItemStack NO_ENERGY = new CustomItemStack(Material.RED_STAINED_GLASS_PANE,
-            "&cNot enough energy!");
-    private static final ItemStack GENERATING = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&aWorking...");
+            "&c没有足够的能量!");
+    private static final ItemStack GENERATING = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&a正在工作...");
     private static final ItemStack NO_ROOM = new CustomItemStack(Material.ORANGE_STAINED_GLASS_PANE,
-            "&6Not enough room!");
+            "&6没有足够的空间!");
     private static final ItemStack INVALID_INPUT = new CustomItemStack(Material.RED_STAINED_GLASS_PANE,
-            "&cInvalid Input!");
+            "&c无效输入!");
 
     private static final ItemStack SET_ITEM = new CustomItemStack(
             Material.LIME_STAINED_GLASS_PANE,
-            ChatColor.GREEN + "Set Item",
-            ChatColor.GRAY + "Drag an item on top of this pane to register it.");
+            ChatColor.GREEN + "设置物品",
+            ChatColor.GRAY + "将物品拖至此处上方以注册它");
 
     public DustMutator(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);

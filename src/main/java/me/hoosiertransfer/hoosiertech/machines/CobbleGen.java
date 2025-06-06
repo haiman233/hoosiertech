@@ -1,5 +1,14 @@
 package me.hoosiertransfer.hoosiertech.machines;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState;
@@ -24,14 +33,6 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class CobbleGen extends SlimefunItem implements RecipeDisplayItem, EnergyNetComponent, MachineProcessHolder<MiningOperation> {
     private static final int[] BORDER = {0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17};
@@ -43,9 +44,9 @@ public class CobbleGen extends SlimefunItem implements RecipeDisplayItem, Energy
 
     private final MachineProcessor<MiningOperation> processor = new MachineProcessor<>(this);
 
-    private static final ItemStack NO_ENERGY = new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&cNot enough energy!");
-    private static final ItemStack GENERATING = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&aGenerating...");
-    private static final ItemStack NO_ROOM = new CustomItemStack(Material.ORANGE_STAINED_GLASS_PANE, "&6Not enough room!");
+    private static final ItemStack NO_ENERGY = new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&c没有足够的能量!");
+    private static final ItemStack GENERATING = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&a正在生产...");
+    private static final ItemStack NO_ROOM = new CustomItemStack(Material.ORANGE_STAINED_GLASS_PANE, "&6没有足够的空间!");
 
     public CobbleGen(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
@@ -158,7 +159,7 @@ public class CobbleGen extends SlimefunItem implements RecipeDisplayItem, Energy
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> displayRecipes = new LinkedList<>();
         displayRecipes.add(new CustomItemStack(Material.AIR));
-        displayRecipes.add(new CustomItemStack(Material.COBBLESTONE, ChatColor.RESET + "Cobblestone"));
+        displayRecipes.add(new CustomItemStack(Material.COBBLESTONE, ChatColor.RESET + "圆石"));
         return displayRecipes;
     }
 

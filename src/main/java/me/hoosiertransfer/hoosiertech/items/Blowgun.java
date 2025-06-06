@@ -1,25 +1,21 @@
 package me.hoosiertransfer.hoosiertech.items;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.DamageableItem;
-import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.hoosiertransfer.hoosiertech.HoosierTech;
-import me.hoosiertransfer.hoosiertech.HoosierTechItemSetup;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.RayTraceResult;
-import org.bukkit.util.Vector;
 
-import java.awt.*;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import me.hoosiertransfer.hoosiertech.HoosierTech;
+import me.hoosiertransfer.hoosiertech.HoosierTechItemSetup;
 
 public class Blowgun extends SlimefunItem {
     public static final NamespacedKey LAST_SHOT = new NamespacedKey(HoosierTech.getInstance(), "last_shot");
@@ -57,7 +53,7 @@ public class Blowgun extends SlimefunItem {
         if (rayTraceResult == null || rayTraceResult.getHitEntity() == null || !(rayTraceResult.getHitEntity() instanceof LivingEntity)) {
             return;
         }
-        System.out.println("Hit entity: " + rayTraceResult.getHitEntity().getName());
+        System.out.println("击中实体: " + rayTraceResult.getHitEntity().getName());
 
         LivingEntity target = (LivingEntity) rayTraceResult.getHitEntity();
         target.damage(1, p);
