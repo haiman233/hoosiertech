@@ -82,7 +82,7 @@ public class DustMutator extends SlimefunItem
     private static final ItemStack SET_ITEM = new CustomItemStack(
             Material.LIME_STAINED_GLASS_PANE,
             ChatColor.GREEN + "设置物品",
-            ChatColor.GRAY + "将物品拖至此处上方以注册它");
+            ChatColor.GRAY + "将物品拖至此处来设置想要转化的矿粉");
 
     public DustMutator(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
